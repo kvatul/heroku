@@ -2,7 +2,7 @@ const city=document.getElementById('city')
 const submitBtn=document.getElementById('submitBtn')
 const citynm=document.getElementById('citynm')
 const acttemp=document.getElementById('acttemp')
-const weather=document.getElementById('weathericon')
+const tempstatus=document.getElementById('tempstatus')
 const datahide=document.querySelector('.mid_layer')
 //alert(acttemp.innerText)
 
@@ -26,19 +26,19 @@ const getTempInfo = async(ev) => {
         acttemp.innerHTML=tempInfo.main.temp
         citynm.innerHTML=`${tempInfo.name}, ${tempInfo.sys.country}` 
         const tempStats= tempInfo.weather[0].main 
-        alert(tempStats)
+        //alert(tempStats)
         switch (tempStats) {
           case 'Clouds':
-           weather.innerHTML="<i class='fas fa-cloud' style='color:#dfe4ea'></i>"  
+            tempstatus.innerHTML="<i class='fas fa-cloud' style='color:#0097e6'></i>"  
            break;
           case 'Rainy':
-            weather.innerHTML="<i class='fas fa-rain style='color:#dfe4ea'></i>"  
+            tempstatus.innerHTML="<i class='fas fa-rain style='color:#dfe4ea'></i>"  
             break;
           case 'Sunny':
-            weather.innerHTML="<i class='fas fa-sun' style='color:#dfe4ea'></i>"  
+            tempstatus.innerHTML="<i class='fas fa-sun' style='color:#dfe4ea'></i>"  
             break;
            default :
-            weather.innerHTML="<i class='fas fa-sun' style='color:#eccc68'></i>"
+           tempstatus.innerHTML="<i class='fas fa-sun' style='color:#eccc68'></i>"
           }
            datahide.classList.remove('data_hide')
       }
